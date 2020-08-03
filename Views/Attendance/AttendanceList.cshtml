@@ -1,0 +1,144 @@
+@{
+    Layout = "_LayoutHC";
+}
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style>
+       body {
+  background-color: #EBF5FB;
+         }
+</style>
+
+ <br>
+
+<div class="container">
+    <div class="column">
+        <div class="col-lg-12 col-sm-5">
+        @{ var u = ViewBag.employee;
+        <h2><b>@u.Name</b></h2>}
+        <h4>Attendance History</h4></div>
+<div class="col-lg-12 col-sm-5"><div class="column text-right">
+<button onclick="location.href='/Attendance/ClockIn?Id=@u.Id'" style="margin-bottom:1.5px" class="btn btn-success"><b>Clock In</b></button>
+<button onclick="location.href='/Attendance/ClockOut?Id=@u.Id'"  style="margin-bottom:1.5px" class="btn btn-success"><b>Clock Out</b></button>
+</div>
+
+<table style="background:white; box-shadow: 1px 1px 10px #5499C7" class="table text-left">
+            <tbody>
+    <br>
+    <thead style="text-center;" class="thead-dark">
+    <tr><th>        </th>
+        @{ 
+        var a = ViewBag.items;
+        var date_only = a.Date;
+        for(int i=1;i<8;i++)
+            {
+        var day = date_only.AddDays(i);
+        var getDate = day.ToString("dd/MM/yyyy");
+        var getHari = day.DayOfWeek;
+        if(day.DayOfWeek!=DayOfWeek.Saturday && day.DayOfWeek!=DayOfWeek.Sunday)
+            {
+             <th scope="col">@getDate <br> @getHari</th> 
+            } 
+            }
+        }
+    </tr>
+  </thead>  
+        <tr><th><b>Clock In</b></th>
+    @{  var Attendance = ViewBag.Attendance;
+        var n = ViewBag.items;
+        var dateonly = n.Date;
+        var cek2 = 0;
+        var timeonly1 ="";
+        for(int i=1;i<8;i++)
+            {cek2=0;
+        var day = dateonly.AddDays(i);
+        var getDate = day.ToString("dd/MM/yyyy");
+        var getHari = day.DayOfWeek;
+        if(day.DayOfWeek!=DayOfWeek.Saturday && day.DayOfWeek!=DayOfWeek.Sunday)
+            { foreach(var item in Attendance){
+                if(getDate == (item.ClockIn).ToString("dd/MM/yyyy")){
+                cek2=1;
+                timeonly1 = item.ClockIn.ToString("hh:mm:ss tt");
+               <td style="background:#00BF61; color:white" scope="col">@timeonly1 <br> @item.Remarks_in</td> }
+               }
+            if(cek2==0){
+                   <td style="background:#E03535; color:white" scope="col">Absent</td>
+               }
+            } 
+            }
+    }
+        </tr> 
+
+        <tr><th><b>Clock Out</b></th>
+    @{  var cek1 = 0;
+        var timeonly="";
+        for(int i=1;i<8;i++)
+            {cek1 = 0;
+        var day = dateonly.AddDays(i);
+        var getDate = day.ToString("dd/MM/yyyy");
+        var getHari = day.DayOfWeek;
+        if(day.DayOfWeek!=DayOfWeek.Saturday && day.DayOfWeek!=DayOfWeek.Sunday)
+            {
+                foreach(var item in Attendance){
+                if(getDate == (item.ClockOut).ToString("dd/MM/yyyy")){
+                cek1=1;
+                timeonly = item.ClockOut.ToString("hh:mm:ss tt");
+               <td style="background:#00BF61; color:white" scope="col">@timeonly <br> @item.Remarks_out</td> }
+              }
+             if(cek1==0){
+                   <td style="background:#E03535; color:white" scope="col">Absent</td>
+               }
+            } 
+        }
+    }
+        </tr> 
+
+
+        <tr><th><b>Status</b></th>
+    @{  var cek = 0;
+        for(int i=1;i<8;i++)
+            { 
+        var day = dateonly.AddDays(i);
+        var getDate = day.ToString("dd/MM/yyyy");
+        var getHari = day.DayOfWeek;
+        cek = 0;
+       
+        if(day.DayOfWeek!=DayOfWeek.Saturday && day.DayOfWeek!=DayOfWeek.Sunday)
+        { 
+            foreach(var item in Attendance)
+            {
+                if(getDate == (item.ClockOut).ToString("dd/MM/yyyy"))
+                {
+                    cek =1;
+                    <td style="background:#00BF61; color:white" scope="col">@item.status</td>
+                }
+                else if(getDate == (item.ClockIn).ToString("dd/MM/yyyy") && cek == 0)
+                {   cek =1;
+                    <td style="background:#00BF61; color:white" scope="col">@item.status</td>
+                }
+            }
+            if(cek == 0)
+            {
+                <td style="background:#E03535; color:white" scope="col">Absent</td>
+            }
+        } 
+    }
+}
+
+        </tr> 
+ </tbody> 
+    </table>
+<div class="text-center">
+<button onclick="location.href='/Attendance/AttendanceThisMonth?Id=@u.Id'" style="background:#FF5693; color:white; float:center" class="btn">View This Month</button>
+</div>
+</div>
+                </div>
+            <br>
+        </div>
+    </div>
+</div>
+	</div>
+</div>
+  </div>
+</div>
+

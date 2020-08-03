@@ -1,0 +1,52 @@
+@{
+    Layout = "_LayoutHC";
+}
+
+<style>
+
+  body {
+    background-color: #EBF5FB;
+    }
+</style>
+@{var get = ViewBag.Event;}
+<br><br>
+        <h2 class="text-center" style="color:#FF5693; font-size:33px">Event List</h2>
+<br><br>
+<button class="btn btn-success" onclick="location.href='/Event/AddEvent'">New Event</button>
+<table style="background:white; margin-top:5px; box-shadow: 1px 1px 10px #5499C7;" class="table table-hover text-left" id="customers">
+<thead class="thead-dark">
+  <tr>
+    <th>No</th>
+    <th>Event</th>
+    <th>Date</th>
+    <th>Action</th>
+  </tr>
+</thead>
+ @{ var No=0;
+ foreach (var a in get){
+   No++;
+   var date = a.day.ToString("dd MMMM yyyy");
+  <tr>
+    <td>@No</td>
+    <td>@a.Name</td>
+    <td>@date</td>
+    <td><button  class="btn btn-success" id="btn-@a.Id" onclick="javascript:Edit(this)">Edit</button> <button id="btn-@a.Id" onclick="javascript:Remove(this)" class="btn btn-danger">Remove</button></td>
+  </tr> }}
+</table>
+
+<script type="text/javascript">
+function Edit(btn)
+{
+    var get = btn.id;
+    Id = get.substring(4,get.Length);
+    location.href='/Event/EditEvent?Id='+Id;
+}
+
+function Remove(btn)
+{
+    var get = btn.id;
+    Id = get.substring(4,get.Length);
+    location.href='/Event/Remove?Id='+Id;
+}
+
+</script>

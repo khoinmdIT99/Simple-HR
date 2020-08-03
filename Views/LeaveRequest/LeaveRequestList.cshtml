@@ -1,0 +1,439 @@
+@{
+    Layout = "_LayoutHC";
+}
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<style>.card {
+    padding-top: 20px;
+    margin: 10px 0 20px 0;
+    background-color: rgba(214, 224, 226, 0.2);
+    border-top-width: 0;
+    border-bottom-width: 2px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.card .card-heading {
+    padding: 0 20px;
+    margin: 0;
+}
+
+.card .card-heading.simple {
+    font-size: 20px;
+    font-weight: 300;
+    color: #777;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.card .card-heading.image img {
+    display: inline-block;
+    width: 46px;
+    height: 46px;
+    margin-right: 15px;
+    vertical-align: top;
+    border: 0;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.card .card-heading.image .card-heading-header {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.card .card-heading.image .card-heading-header h3 {
+    margin: 0;
+    font-size: 14px;
+    line-height: 16px;
+    color: #262626;
+}
+
+.card .card-heading.image .card-heading-header span {
+    font-size: 12px;
+    color: #999999;
+}
+
+.card .card-body {
+    padding: 0 20px;
+    margin-top: 20px;
+}
+
+.card .card-media {
+    padding: 0 20px;
+    margin: 0 -14px;
+}
+
+.card .card-media img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.card .card-actions {
+    min-height: 30px;
+    padding: 0 20px 20px 20px;
+    margin: 20px 0 0 0;
+}
+
+.card .card-comments {
+    padding: 20px;
+    margin: 0;
+    background-color: #f8f8f8;
+}
+
+.card .card-comments .comments-collapse-toggle {
+    padding: 0;
+    margin: 0 20px 12px 20px;
+}
+
+.card .card-comments .comments-collapse-toggle a,
+.card .card-comments .comments-collapse-toggle span {
+    padding-right: 5px;
+    overflow: hidden;
+    font-size: 12px;
+    color: #999;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card-comments .media-heading {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.card.people {
+    position: relative;
+    display: inline-block;
+    width: 500px;
+    height: 300px;
+    padding-top: 0;
+    margin-left: 20px;
+    overflow: hidden;
+    vertical-align: top;
+}
+
+.card.people:first-child {
+    margin-left: 0;
+}
+
+.card.people .card-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 170px;
+    height: 150px;
+    background-color: #ffffff;
+}
+
+.card.people .card-top.green {
+    background-color: #53a93f;
+}
+
+.card.people .card-top.blue {
+    background-color: #427fed;
+}
+
+.card.people .card-info {
+    position: absolute;
+    top: 150px;
+    display: inline-block;
+    width: 100%;
+    height: 101px;
+    overflow: hidden;
+    background: #ffffff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.card.people .card-info .title {
+    display: block;
+    margin: 8px 14px 0 14px;
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 18px;
+    color: #404040;
+}
+
+.card.people .card-info .desc {
+    display: block;
+    margin: 8px 14px 0 14px;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 16px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+
+.card.people .card-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    padding: 10px 20px;
+    line-height: 29px;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.card.hovercard {
+    box-shadow: 1px 1px 10px #5499C7;
+    position: relative;
+    padding-right: 15px;
+    padding-left: 15px;
+    overflow: hidden;
+    text-align: center;
+    background-color: white;
+}
+
+.btn:focus{
+background: #ffffff;
+}
+  
+.card.hovercard .cardheader {
+    background-color: rgba(214, 224, 226, 0.2);
+    height: 500px;
+}
+.card.hovercard .cardjudul {
+    background: #0c0f11;
+    background-size: cover;
+    height: 350px;
+}
+
+.card.hovercard .body {
+    background-size: cover;
+    height: 290px;
+}
+
+.card.hovercard .avatar {
+    position: relative;
+    top: -50px;
+    margin-bottom: -50px;
+}
+
+.card.hovercard .avatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(20,105,148,0.5);
+}
+
+.card.hovercard .info {
+    padding: 4px 8px 10px;
+}
+
+.card.hovercard .info .title {
+    margin-bottom: 4px;
+    font-size: 24px;
+    line-height: 1;
+    color: #262626;
+    vertical-align: middle;
+}
+
+.card.hovercard .info .desc {
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 20px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+
+.card.hovercard .bottom {
+    padding: 0 20px;
+    margin-bottom: 17px;
+}
+
+.navbar:active{
+    color:#5DADE2;
+}
+
+   body {
+  background-color: #EBF5FB;
+         }
+</style>
+
+ <br><br>
+        <h2 class="text-center" style="color:#FF5693; font-size:33px">Leave Request</h2> <br><br>
+<div class="container">
+    <div class="column">
+    <div class="col-lg-12 col-sm-5">
+<div class="column text-right"> 
+<button onclick="location.href='/LeaveRequest/ExportCSV'" class="btn btn-success"><b>Export CSV</b></button>
+<button onclick="location.href='/LeaveRequest/ExportAll'" class="btn btn-success"><b>Export CSV (All)</b></button>
+<button onclick="location.href='/LeaveRequest/AddLeaveRequest'" class="btn btn-success"><b>Add Leave Request</b></button> </div></div></div>
+        <div class="col-lg-12 col-sm-5">
+             <div class="card hovercard">
+
+                    <div class="row">
+                        @{ var page = ViewBag.page;
+                        if(page.StatusPage == "pending"){
+                    <ul> 
+                        <li style="width:370px"><a style="background:#FF5693; color:#F0F9FF" href="/LeaveRequest/LeaveRequestList?status=pending">Pending</a></li>
+                        <li style="width:370px"><a style="color:#F0F9FF" href="/LeaveRequest/LeaveRequestList?status=approve">Approved</a></li>
+                        <li style="width:370px"><a style="color:#F0F9FF" href="/LeaveRequest/LeaveRequestList?status=reject">Rejected</a></li>
+                    </ul>}
+                    else if(page.StatusPage == "approve"){
+                    <ul> 
+                        <li style="width:370px"><a style="color:#F0F9FF" href="/LeaveRequest/LeaveRequestList?status=pending">Pending</a></li>
+                        <li style="width:370px"><a style="background:#FF5693; color:#F0F9FF" href="/LeaveRequest/LeaveRequestList?status=approve">Approved</a></li>
+                        <li style="width:370px"><a style="color:#F0F9FF" href="/LeaveRequest/LeaveRequestList?status=reject">Rejected</a></li>
+                    </ul>
+                    }else {
+                    <ul> 
+                        <li style="width:370px"><a style="color:#F0F9FF" href="/LeaveRequest/LeaveRequestList?status=pending">Pending</a></li>
+                        <li style="width:370px"><a style="color:#F0F9FF" href="/LeaveRequest/LeaveRequestList?status=approve">Approved</a></li>
+                        <li style="width:370px"><a style="background:#FF5693; color:#F0F9FF" href="/LeaveRequest/LeaveRequestList?status=reject">Rejected</a></li>
+                    </ul>
+                    }
+                        }
+                   </div>
+                   <br>
+
+                   <div class="col-lg-12 col-sm-4">
+                       <div class="row">
+                    <form>
+                   <div class="col-lg-11 col-sm-5">
+                    <input type="text" id="keyword" name="search" class="form-control" placeholder="Type to search"></div>
+                   <div>
+                    <button onclick="javascript:Search(this)" class="btn btn-primary" type="button"><span class="fa fa-search"> Search</span>
+                    </button></div></form>
+                    </div><br>    
+                <div class="body">
+
+<table style="background:white" class="table text-left">
+            <tbody>
+   @{
+    var Leave = ViewBag.items;
+    var datestart = "";
+    var dateend = "";
+    <br>
+    <thead class="thead-dark">
+    <tr>
+      <th class="text-center" scope="col">Name</th>
+      <th class="text-center" scope="col">Occupation</th>
+      <th class="text-center" scope="col">Department</th>
+      <th class="text-center" scope="col">Start</th>
+      <th class="text-center" scope="col">End</th>
+      <th class="text-center" scope="col">Remark</th>
+    </tr>
+  </thead>    
+    foreach(var a in Leave) { 
+        datestart = a.Start.ToString("dd MMMM yyyy");
+        dateend = a.End.Date.ToString("dd MMMM yyyy");
+            <tr>
+        <input type="hidden"  id="Id-@a.Id" value="@a.Id">
+                <td class="text-center"><b>@a.EmployeeName</b></td>
+                <td class="text-center">@a.EmployeeOccupation</td>
+                <td class="text-center">@a.EmployeeDepartment</td>
+                <td class="text-center">@datestart</td>
+                <td class="text-center">@dateend</td>
+                <td class="text-center">@a.Remarks</td>
+            @{
+            if(a.status=="pending"){
+                <td class="text-right"><button id="btn-@a.Id" class="btn" style="background:#FF5693; color:white" onclick="javascript:Approve(this)">Approve</button>  <button id="btn-@a.Id" class="btn" style="background:#3E3E3E; color:white" onclick="javascript:Reject(this)">Reject</button></td>}
+            else if(a.status!="pending"){
+                <td class="text-right"><button id="btn-@a.Id" class="btn btn-danger glyphicon glyphicon-trash" onclick="javascript:Remove(this)"></button></td>
+                } }
+            </tr> 
+            } 
+    }
+ </tbody> 
+    </table>
+                </div>
+            <br>
+        </div>
+    </div>
+</div>
+	</div>
+</div>
+  </div>
+</div>
+
+
+
+<div class="container">
+<div class="column text-center">
+<div class="col-lg-12 col-sm-5">
+<nav aria-label="...">
+  <ul style="margin-left:12px; box-shadow: 1px 1px 10px #5499C7;" class="pagination marginleft" >
+    @{
+      var paging = ViewBag.page;
+    <li class="page-item">
+      <a class="page-link" href="">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" value="1" id="btn1" href="/LeaveRequest/LeaveRequestList?_crntpage=1&status=@paging.StatusPage">1</a></li>
+    <li class="page-item"><a class="page-link" value="2" id="btn2" href="/LeaveRequest/LeaveRequestList?_crntpage=2&status=@paging.StatusPage">2</a></li>
+    <li class="page-item"><a class="page-link" value="3" id="btn3" href="/LeaveRequest/LeaveRequestList?_crntpage=3&status=@paging.StatusPage">3</a></li>
+    <li class="page-item"><a class="page-link" value="4" id="btn4" href="/LeaveRequest/LeaveRequestList?_crntpage=4&status=@paging.StatusPage">4</a></li>
+    <li class="page-item"><a class="page-link" value="5" id="btn5" href="/LeaveRequest/LeaveRequestList?_crntpage=5&status=@paging.StatusPage">5</a></li>
+    <li class="page-item"><a class="page-link" value="6" id="btn6" href="/LeaveRequest/LeaveRequestList?_crntpage=6&status_employee=@paging.StatusPage">6</a></li>
+    <li class="page-item">
+      <a class="page-link" href="">Next</a>
+    </li> }
+  </ul>
+<br><br><br></div></div>
+
+
+
+<script type="text/javascript">
+function Approve(btn)
+{
+    var id = btn.id;
+    id = id.substring(4,id.Length);
+    var identify = "Id-"+id;
+    var Id = document.getElementById(identify).value;
+    location.href='/LeaveRequest/Approve?Id='+Id;
+}
+
+function Reject(btn)
+{
+    var id = btn.id;
+    id = id.substring(4,id.Length);
+    var identify = "Id-"+id;
+    var Id = document.getElementById(identify).value;
+    location.href='/LeaveRequest/Reject?Id='+Id;
+}
+
+function LeaveDetail(btn)
+{
+    var id = btn.id;
+    id = id.substring(4,id.Length);
+    var identify = "Id-"+id;
+    var Id = document.getElementById(identify).value;
+    location.href='/LeaveRequest/ApplicantDetail?Id='+Id;
+}
+
+function Remove(btn)
+{
+    var id = btn.id;
+    id = id.substring(4,id.Length);
+    var identify = "Id-"+id;
+    var Id = document.getElementById(identify).value;
+    location.href='/LeaveRequest/Remove?Id='+Id;
+}
+
+function Search()
+{
+    var keyword = document.getElementById("keyword").value;
+    console.log(keyword);
+    location.href='/LeaveRequest/Search?keyword='+keyword;
+}
+
+</script>

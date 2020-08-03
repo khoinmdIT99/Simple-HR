@@ -1,0 +1,81 @@
+@{
+    Layout = "_LayoutHC";
+}
+<!DOCTYPE html>
+<html>
+  <style>
+    body {
+  background-color: #EBF5FB;
+         }
+  </style>
+<body>
+  <br><br>
+  @{var employ = ViewBag.Employee;
+  var Id = ViewBag.Id;
+  var dt = DateTime.Now;
+  var month_ = dt.ToString("MMMM yyyy");
+  <div style="margin-left: 70px;">
+  <h2>Attendance of <br>@employ.Name</h2>
+  <p style="width:200px">On @month_</p></div>
+  }
+
+<div class="container">
+<div style="margin-top:10px; margin-right:24px; margin-bottom:4px; float:right">
+  <form asp-action="Export" asp-controller="Attendance">
+  <input type="hidden" name="Id" value="@Id">
+<button class="btn btn-success" type="submit">Export</button>
+</form></div>
+<div style="width:1080px;margin-left:40px;margin-top:7px; margin-bottom:30px;" class=" text-center">
+  <table style="background:white" class="table text-left">
+            <tbody>
+    <br>
+    <thead class="thead-dark">
+    <tr>
+      <th class="text-center" style="background: #1F618D; color:white" scope="col">Date</th>
+      <th class="text-center" style="background: #1F618D; color:white" scope="col">Clock In</th>
+      <th class="text-center" style="background: #1F618D; color:white" scope="col">Clock Out</th>
+      <th class="text-center" style="background: #1F618D; color:white" scope="col">Status</th>
+    </tr>
+  </thead>
+    @{
+    var items = ViewBag.items;
+    var get = DateTime.Now;
+    var get_month = get.Month;
+    var get_year = get.Year;
+    var date = new DateTime(get_year,get_month,1);
+    var get_day_number = System.DateTime.DaysInMonth(date.Year, date.Month);
+    var dateonly="";
+    for(int i=1;i<=get_day_number;i++) {
+        date = new DateTime(get_year,get_month,i);
+        var datetocheck = date.ToString("dd/MM/yyyy");
+        dateonly = date.ToString("dd-MM-yyyy");
+            <tr>
+                <td class="text-center"><b>@dateonly</b></td>
+                @{var employee = ViewBag.Employee;
+                var attendance = ViewBag.Attendance;
+                foreach(var item in attendance){
+                if(datetocheck == (item.ClockIn).ToString("dd/MM/yyyy"))
+                {
+                var time = item.ClockIn;
+                var timeonly = time.ToString("hh:mm:ss tt");
+                <td class="text-center">@timeonly</td>
+                }}
+                foreach(var item in attendance){
+                if(datetocheck == (item.ClockOut).ToString("dd/MM/yyyy"))
+                {
+                    var time = item.ClockOut;
+                    var timeonly = time.ToString("hh:mm:ss tt");
+                <td class="text-center">@timeonly</td>
+                 }
+                 }
+                 foreach(var item in attendance){
+                if(datetocheck == (item.ClockIn).ToString("dd/MM/yyyy"))
+                {
+                <td class="text-center">@item.status</td> }}
+                }
+            </tr> 
+            } 
+    }
+ </tbody> 
+    </table></div></div><br><br><br>
+    </body></html>
